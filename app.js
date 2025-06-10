@@ -52,6 +52,7 @@ app.use(tareasRoutes); // Maneja /tareas
 app.use(errorMiddleware);//Middleware de manejo de errores
 
 //Iniciar servidor
-app.listen(process.env.PORT, () => {
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
   console.log(`🚀 Servidor corriendo en http://localhost:${process.env.PORT}`);
 });
