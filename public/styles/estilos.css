@@ -1,0 +1,305 @@
+/* ====================
+  RESET GLOBAL
+==================== */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f9f9f9;
+  font-family: Arial, sans-serif;
+  padding: 40px;
+}
+
+/* ====================
+  CONTENEDORES
+==================== */
+.container {
+  max-width: 400px;
+  margin: auto;
+  background: white;
+  padding: 30px 40px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.container-tareas {
+  max-width: 900px;
+  margin: 40px auto;
+  background: white;
+  padding: 30px 40px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+/* ====================
+  TITULOS Y TEXTOS
+==================== */
+h1, .titulo-tareas {
+  text-align: center;
+  color: #2c3e50;
+  margin-bottom: 20px;
+}
+
+.titulo-tareas {
+  font-size: 28px;
+}
+
+.bienvenida {
+  font-style: italic;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #555;
+}
+
+/* ====================
+  FORMULARIOS GENERALES
+==================== */
+form label {
+  display: block;
+  margin-top: 15px;
+  color: #444;
+}
+
+form input,
+form select {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  font-size: 15px;
+}
+
+form button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 20px;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+form button:hover {
+  background-color: #2980b9;
+}
+
+/* ====================
+  ALERTAS
+==================== */
+.alert {
+  background-color: #f8d7da;
+  color: #721c24;
+  padding: 10px 15px;
+  margin-top: 10px;
+  border-radius: 4px;
+  border: 1px solid #f5c6cb;
+  font-size: 14px;
+}
+
+/* ====================
+  BOTÓN NUEVA TAREA
+==================== */
+#btnNuevaTarea {
+  background-color: #2ecc71;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 4px;
+  font-size: 15px;
+  margin: 15px 0 25px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+#btnNuevaTarea:hover {
+  background-color: #27ae60;
+}
+
+/* ====================
+  LISTA DE TAREAS
+==================== */
+.lista-tareas {
+  list-style: none;
+  padding: 0;
+}
+
+.tarea-item {
+  background: #ecf0f1;
+  padding: 12px 16px;
+  margin-bottom: 15px;
+  border-radius: 6px;
+}
+
+.tarea-item strong {
+  color: #2c3e50;
+}
+
+.botones {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.btn-editar,
+.btn-eliminar {
+  padding: 6px 12px;
+  margin-right: 8px;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+  display: inline-block;
+  border: none;
+  text-decoration: none;
+}
+
+.btn-editar {
+  background-color: #3498db;
+  color: white;
+}
+
+.btn-editar:hover {
+  background-color: #2980b9;
+}
+
+.btn-eliminar {
+  background-color: #e74c3c;
+  color: white;
+}
+
+.btn-eliminar:hover {
+  background-color: #c0392b;
+}
+
+/* ====================
+  MODAL DE TAREA (crear / editar)
+==================== */
+.modal {
+  position: fixed;
+  z-index: 1000;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0,0,0,0.4);
+}
+
+.modal-contenido {
+  background: white;
+  padding: 30px;
+  margin: 10% auto;
+  width: 400px;
+  border-radius: 8px;
+  position: relative;
+}
+
+.modal-contenido h2 {
+  margin-top: 0;
+  text-align: center;
+  color: #2c3e50;
+}
+
+.modal-contenido form {
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-contenido label {
+  margin-top: 15px;
+  font-weight: 500;
+  color: #333;
+}
+
+.modal-contenido input,
+.modal-contenido select {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 15px;
+  margin-top: 5px;
+}
+
+.modal-contenido button[type="submit"] {
+  margin-top: 25px;
+  padding: 12px;
+  background-color: #3498db;
+  border: none;
+  color: white;
+  font-size: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.modal-contenido button[type="submit"]:hover {
+  background-color: #2980b9;
+}
+
+.cerrar {
+  position: absolute;
+  top: 10px; right: 15px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* ====================
+  MODAL CONFIRMACIÓN
+==================== */
+.modal-acciones {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.btn-cancelar {
+  background-color: #bbb;
+  border: none;
+  padding: 8px 16px;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn-confirmar {
+  background-color: #e74c3c;
+  border: none;
+  padding: 8px 16px;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* ====================
+  TOAST
+==================== */
+.toast {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background-color: #2ecc71;
+  color: white;
+  padding: 15px 20px;
+  border-radius: 6px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  opacity: 0;
+  transition: opacity 0.4s ease-in-out;
+  font-weight: bold;
+  z-index: 2000;
+}
+
+.toast.visible {
+  opacity: 1;
+}
+
+/* ====================
+  UTILIDADES
+==================== */
+.oculto {
+  display: none;
+}

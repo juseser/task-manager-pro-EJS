@@ -1,0 +1,19 @@
+# Node.js
+node_modules/
+.env
+.env.*  # Si usas archivos como .env.development
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Sistema operativo
+.DS_Store  # macOS
+Thumbs.db  # Windows
+
+# Editor
+.vscode/
+.idea/
+*.swp

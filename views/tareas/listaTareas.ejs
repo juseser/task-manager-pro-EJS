@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <title>Mis tareas</title>
+    <link rel="stylesheet" href="/styles/estilos.css">
+  </head>
+  <body>
+    <div class="container-tareas">
+      <h1 class="titulo-tareas">📋 Mis tareas</h1>
+      <p class="bienvenida">Bienvenido, <strong><%= usuario.nombre %></strong></p>
+      
+     <button id="btnNuevaTarea">➕ Nueva tarea</button> <!--boton agregar tarea -->
+
+      <ul id="listaTareas" class="lista-tareas">
+        <% if (tareas.length === 0) { %>
+          <li>No tienes tareas registradas.</li>
+        <% } else { %>
+          <% tareas.forEach(tarea => { %>
+            <li class="tarea-item">
+              <strong>ID:</strong> <%= tarea._id %><br>
+              <strong><%= tarea.titulo %></strong> - Estado: <%= tarea.estatus || '-' %> - Fecha límite: <%= tarea.fechaLimite?.toLocaleDateString() || '-' %>
+              <div class="botones">
+                <button class="btn-editar" data-id="<%= tarea._id %>">📝Editar</button>
+                <button class="btn-eliminar" data-id="<%= tarea._id %>">❌Eliminar</button>
+              </div>
+            </li>
+          <% }) %>
+        <% } %>
+      </ul>
+    </div>
+
+    <!-- Modal Crear / Editar -->
+    <div id="modalTarea" class="modal oculto">
+      <div class="modal-contenido">
+        <span id="cerrarModal" class="cerrar">&times;</span>
+        <h2 id="modalTitulo">Nueva Tarea</h2>
+        <!-- formulario Crear / Editar -->
+        <form id="formTarea"> <!--El action y method se asignan dinamicamente con js-->
+          <div id="mensajeErrorTarea" class="alert oculto"></div><!--div para mostrar el mensaje de error retornando de crear o editar-->
+          <label for="tituloInput">Título</label>
+          <input type="text" name="titulo" id="tituloInput" required>
+
+          <label for="estatusInput">Estado</label>
+          <select name="estatus" id="estatusInput">
+            <option value="pendiente">Pendiente</option>
+            <option value="en progreso">En progreso</option>
+            <option value="completada">Completada</option>
+          </select>
+
+          <label for="fechaInput">Fecha límite</label>
+          <input type="date" name="fechaLimite" id="fechaInput">
+
+          <button id="btnGuardar" type="submit">Guardar tarea</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Confirmar eliminar -->
+    <div id="confirmacionEliminar" class="modal oculto">
+      <div class="modal-contenido">
+        <p>¿Quieres eliminar esta tarea?</p>
+        <div class="modal-acciones">
+          <button id="cancelarEliminar" class="btn-cancelar">Cancelar</button>
+          <button id="confirmarEliminar" class="btn-confirmar">Eliminar</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="toastAgregar" class="toast oculto">Tarea creada correctamente ✅</div>
+    <div id="toastEditar" class="toast oculto">Tarea editada correctamente ✅</div>
+    <div id="toast" class="toast oculto">Tarea eliminada correctamente ✅</div>
+
+    <script src="/js/script.js"></script>
+  </body>
+</html>
