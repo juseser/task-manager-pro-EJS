@@ -145,6 +145,6 @@ Este proyecto es de código abierto y puede ser utilizado libremente con fines e
 ## 👨‍💻 Autor
 
 **Juan Sebastián Serrano**  
-📧 jserrano@procesos-eficientes.com
+📧 juseser@gmail.com
 
 ---
